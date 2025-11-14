@@ -4,17 +4,14 @@
 
 #define MAX_NOME 50
 
-
 typedef struct { // Estrutura de um funcionário
     char nome[MAX_NOME];
     int horasExtras;
-    int aprovado; // -1 = pendente, 0 = rejeitado, 1 = aprovado
+    int aprovado;
 } Funcionario;
 
-// Ponteiro para o vetor dinâmico
 Funcionario *funcionarios = NULL;
 int totalFuncionarios = 0;
-
 
 void cadastrarFuncionario() { // Função para cadastrar funcionário usando realloc
     funcionarios = realloc(funcionarios, (totalFuncionarios + 1) * sizeof(Funcionario));
@@ -63,7 +60,6 @@ void registrarHoras() { // Registrar horas extras
     printf("Horas registradas com sucesso!\n");
 }
 
-
 void listar() { // Listar todos os funcionários
     if (totalFuncionarios == 0) {
         printf("Nenhum funcionário cadastrado.\n");
@@ -83,7 +79,6 @@ void listar() { // Listar todos os funcionários
     }
     printf("------------------------\n");
 }
-
 
 void aprovarHoras() { // Aprovar ou rejeitar horas extras
     int id, op;
@@ -110,7 +105,6 @@ void aprovarHoras() { // Aprovar ou rejeitar horas extras
 
     printf("Processo concluído!\n");
 }
-
 
 int main() { // Menu principal
     int opcao;
